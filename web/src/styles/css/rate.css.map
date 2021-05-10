@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "../sass/rate.sass"
-    ],
-    "names": [],
-    "file": "rate.css"
-}

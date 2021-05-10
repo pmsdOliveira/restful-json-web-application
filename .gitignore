@@ -1,4 +1,4 @@
 .vscode
 scripts/__pycache__
 tmp
-web/node_modules
+is-dashboard/node_modules
