@@ -8,16 +8,130 @@ body {
 }
 
 #l-modal {
-  background-color: #131E2B;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  background-color: #222425;
   border-radius: 32px;
   -webkit-box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.75);
           box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.75);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   height: 90vh;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   left: 10%;
   margin: auto;
   position: absolute;
   top: 5%;
   width: 80vw;
+}
+
+.rateForm {
+  background-color: #222425;
+  border: 3px solid black;
+  border-radius: 8px;
+  width: 20%;
+}
+
+.rateGrid {
+  background-color: black;
+  -webkit-column-gap: 0.2vw;
+          column-gap: 0.2vw;
+  display: -ms-grid;
+  display: grid;
+  font-size: 1rem;
+  -ms-grid-columns: 7fr 3fr;
+      grid-template-columns: 7fr 3fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  row-gap: 0.4vh;
+}
+
+.rateGrid > div {
+  background-color: #222425;
+}
+
+.rate-top-left, .rate-top-right, .rate-bottom-left, .rate-bottom-right {
+  padding: 1vh 1vw;
+}
+
+.rate-top-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rate-top-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rate-bottom-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rate-bottom-left input {
+  background-color: #222425;
+  border: none;
+  outline: none;
+  margin: auto;
+}
+
+.rate-bottom-left input:hover {
+  color: #222425;
+  cursor: pointer;
+  background-color: white;
+}
+
+.rate-bottom-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rate-bottom-right input {
+  background-color: #222425;
+  border: none;
+  text-align: center;
+  width: 100%;
 }
 
 .circle-small {

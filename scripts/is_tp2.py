@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_restful import reqparse, abort, Api, Resource
 from flask_caching import Cache
+from flask_cors import CORS, cross_origin
 import sim
 import time
 import threading
@@ -8,6 +9,7 @@ import requests
 import json
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 # Instantiate the cache
