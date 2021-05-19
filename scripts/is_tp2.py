@@ -1,9 +1,10 @@
 from flask import Flask
 from flask_restful import reqparse, abort, Api, Resource
 from flask_caching import Cache
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 import sim
 import time
+from datetime import datetime
 import threading
 import requests
 import json
@@ -67,25 +68,34 @@ def get_config(child):
     return requests.get('%s%s' % (db_ref, child))
 
 
-# TODO LAB 1 - Implement the data collection loop in a thread
+# LAB 1 - Implement the data collection loop in a thread
 class DataCollection(threading.Thread):
     def __init__(self):
         self.id = id
         threading.Thread.__init__(self)
         # initialize the current_rate value in the cache
         cache.set("current_rate", 1.0)
-        # TODO LAB 2 - Put an initial rate in the config stored in the DB
+        # LAB 2 - Put an initial rate in the config stored in the DB
         put_config('config', {'current_rate': 1.0})
     
     def run(self):
-        # TODO LAB 1 - Get acceleration data values (x, y and z) from the simulation and print them to the console
-        # TODO LAB 2 - Push the data to the real-time database on Firebase
+        # LAB 1 - Get acceleration data values (x, y and z) from the simulation and print them to the console
         while True:
-            push_data('accel_x', {'data': get_data_from_simulation('accelX'), 'timestamp': time.time()})
-            push_data('accel_y', {'data': get_data_from_simulation('accelY'), 'timestamp': time.time()})
-            push_data('accel_z', {'data': get_data_from_simulation('accelZ'), 'timestamp': time.time()})
+            x = get_data_from_simulation('accelX')
+            y = get_data_from_simulation('accelY')
+            z = get_data_from_simulation('accelZ')
+            timestamp = datetime.now().strftime("%H:%M:%S")
+
+            if x == None or y == None or z == None:
+                continue
+
+            # LAB 2 - Push the data to the real-time database on Firebase
+            push_data('accel_x', {'data': x, 'timestamp': timestamp})
+            push_data('accel_y', {'data': y, 'timestamp': timestamp})
+            push_data('accel_z', {'data': z, 'timestamp': timestamp})
             
-            time.sleep(cache.get("current_rate"))
+            sleep = cache.get("current_rate")
+            time.sleep(sleep if sleep != None else 1.0)
 
 
 if __name__ == '__main__':

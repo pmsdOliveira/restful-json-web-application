@@ -3,7 +3,7 @@ import React from "react";
 import "../styles/main.css";
 
 const Profile = () => {
-    return <div></div>;
+    return <div className="profile"></div>;
 };
 
 export default Profile;

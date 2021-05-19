@@ -1,9 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
 import "../styles/main.css";
 
-const Graph = () => {
-    return <div></div>;
+const Graph = (props) => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const listener = props.db
+            .ref(props.type)
+            .limitToLast(10)
+            .on("value", (snapshot) => {
+                let list = [];
+                Object.keys(snapshot.val()).forEach((key) => {
+                    list.push(snapshot.val()[key]);
+                });
+
+                setData(list);
+            });
+        return () => props.db.ref(props.type).off("value", listener);
+    }, [data]);
+
+    return (
+        <div className="graph">
+            <ResponsiveContainer>
+                <LineChart data={data}>
+                    <Line type="monotone" dataKey="data" stroke={props.color} />
+                    <CartesianGrid stroke="#ccc" />
+                    <XAxis dataKey="timestamp" />
+                    <YAxis type="number" domain={[props.lims.min, props.lims.max]} />
+                    <Tooltip />
+                    <Legend />
+                </LineChart>
+            </ResponsiveContainer>
+        </div>
+    );
 };
 
 export default Graph;

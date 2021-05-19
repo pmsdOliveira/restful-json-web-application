@@ -1,22 +1,17 @@
 import React from "react";
 
 import Profile from "./Profile";
-import Graph from "./Graph";
-import CurrentRateForm from "./CurrentRateForm";
+import Dashboard from "./Dashboard";
+import Rate from "./Rate";
 
 import "../styles/main.css";
 
-const Modal = () => {
+const Modal = ({ db }) => {
     return (
-        <div>
-            <div className="circle-big"></div>
-            <div className="circle-medium"></div>
-            <div className="circle-small"></div>
-            <div id="l-modal">
-                <Profile />
-                <Graph />
-                <CurrentRateForm />
-            </div>
+        <div id="l-modal">
+            <Profile />
+            <Dashboard db={db} />
+            <Rate db={db} />
         </div>
     );
 };

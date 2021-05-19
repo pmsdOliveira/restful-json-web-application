@@ -1,11 +1,12 @@
-.rateForm
+.currentRate
     background-color: $modal
-    border: 3px solid black
+    border: 3px solid $background-gradient-dark
     border-radius: 8px
-    width: 20%
+    height: 100%
+    width: 15%
 
 .rateGrid
-    background-color: black
+    background-color: $background-gradient-dark
     column-gap: 0.2vw
     display: grid
     font-size: 1rem
@@ -16,6 +17,7 @@
         background-color: $modal
 
 .rate-top-left, .rate-top-right, .rate-bottom-left, .rate-bottom-right
+    color: white
     padding: 1vh 1vw
 
 .rate-top-left
@@ -35,8 +37,10 @@
     input
         background-color: $modal
         border: none
+        color: white
         outline: none
         margin: auto
+        padding: 0.5vh 3vw
         &:hover
             color: $modal
             cursor: pointer
@@ -47,6 +51,7 @@
     flex-flow: row nowrap
     justify-content: center
     input
+        color: white
         background-color: $modal
         border: none
         text-align: center
