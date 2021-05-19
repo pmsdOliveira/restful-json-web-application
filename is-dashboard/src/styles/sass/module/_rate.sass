@@ -1,58 +1,9 @@
-.currentRate
+.rate
     background-color: $modal
-    border: 3px solid $background-gradient-dark
-    border-radius: 8px
-    height: 100%
-    width: 15%
-
-.rateGrid
-    background-color: $background-gradient-dark
-    column-gap: 0.2vw
-    display: grid
-    font-size: 1rem
-    grid-template-columns: 7fr 3fr
-    grid-template-rows: 1fr 1fr
-    row-gap: 0.4vh
-    > div
-        background-color: $modal
-
-.rate-top-left, .rate-top-right, .rate-bottom-left, .rate-bottom-right
-    color: white
-    padding: 1vh 1vw
-
-.rate-top-left
     display: flex
-    flex-flow: row nowrap
     justify-content: center
+    height: 10%
+    width: 100%
 
-.rate-top-right
-    display: flex
-    flex-flow: row nowrap
-    justify-content: center
-
-.rate-bottom-left
-    display: flex
-    flex-flow: row nowrap
-    justify-content: center
-    input
-        background-color: $modal
-        border: none
-        color: white
-        outline: none
-        margin: auto
-        padding: 0.5vh 3vw
-        &:hover
-            color: $modal
-            cursor: pointer
-            background-color: white
-
-.rate-bottom-right
-    display: flex
-    flex-flow: row nowrap
-    justify-content: center
-    input
-        color: white
-        background-color: $modal
-        border: none
-        text-align: center
-        width: 100%
+.rate-slider
+    width: 30%

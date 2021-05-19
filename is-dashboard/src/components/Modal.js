@@ -11,7 +11,6 @@ const Modal = ({ db }) => {
         <div id="l-modal">
             <Profile />
             <Dashboard db={db} />
-            <Rate db={db} />
         </div>
     );
 };

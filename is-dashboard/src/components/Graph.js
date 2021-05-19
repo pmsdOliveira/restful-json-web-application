@@ -24,9 +24,9 @@ const Graph = (props) => {
     return (
         <div className="graph">
             <ResponsiveContainer>
-                <LineChart data={data}>
+                <LineChart data={data} syncId="sync">
                     <Line type="monotone" dataKey="data" stroke={props.color} />
-                    <CartesianGrid stroke="#ccc" />
+                    <CartesianGrid stroke="#bbb" />
                     <XAxis dataKey="timestamp" />
                     <YAxis type="number" domain={[props.lims.min, props.lims.max]} />
                     <Tooltip />
