@@ -1,4 +1,4 @@
-import React, { useState, useEffect, InputRange } from "react";
+import React, { useState, useEffect } from "react";
 
 import "../styles/main.css";
 
@@ -9,40 +9,42 @@ const Rate = ({ db }) => {
 
     useEffect(() => {
         const listener = db.ref("config/current_rate").on("value", (snapshot) => {
-            const data = snapshot.val();
-            setServerRate(data);
+            setServerRate(snapshot.val());
         });
 
         return () => db.ref("config/current_rate").off("value", listener);
-    }, [serverRate]);
+    }, [serverRate, db]);
 
-    const handleChange = async (e) => {
-        const val = parseFloat(e.target.value);
-        setClientRate(val);
+    const handleChange = (e) => {
+        setClientRate(parseFloat(e.target.value));
 
-        const reqString = (val % 1 != 0) ? val.toString() : val.toString() + ".0";
-
-        const requestOptions = {
-            method: "PUT",
-        };
-
-        try {
-            const response = await fetch(
-                "http://127.0.0.1:5000/updateRate/api/v1.0/" + reqString,
-                requestOptions
-            );
-
-            const data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.log(error);
-        }
+        db.ref("config").set({
+            current_rate: clientRate,
+        });
     };
 
     return (
-        <form className="rate">
-            <input className="rate-slider" type="range" min="0.5" max="10" step="0.5" value={clientRate} onChange={(e) => handleChange(e)}/>
-        </form>
+        <div className="rate">
+            <div className="rate-header">
+                <span>Current Rate</span>
+            </div>
+            <div className="rate-value">
+                <span>{serverRate}</span>
+            </div>
+            <div className="rate-field">
+                <div className="rate-value-left">0.5</div>
+                <input
+                    className="rate-slider"
+                    type="range"
+                    min="0.5"
+                    max="10"
+                    step="0.5"
+                    value={serverRate}
+                    onChange={(e) => handleChange(e)}
+                />
+                <div className="rate-value-right">10</div>
+            </div>
+        </div>
     );
 };
 

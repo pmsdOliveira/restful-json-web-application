@@ -1,9 +1,41 @@
 .rate
-    background-color: $modal
+    align-items: center
     display: flex
+    flex-flow: column nowrap
     justify-content: center
-    height: 10%
+    height: 30%
     width: 100%
 
-.rate-slider
+.rate-field
+    align-items: center
+    background: $background-gradient-light
+    border-radius: 8px
+    display: flex
+    height: 25%
+    justify-content: center
+    margin-top: 1vh
+    position: relative
     width: 30%
+    input
+        border: none
+        border-radius: 8px
+        opacity: 0.5
+        outline: none
+        width: 100%
+        -webkit-appearance: none
+        transition: 0.5s ease
+        &:hover
+            opacity: 1.0
+
+.rate-value span,
+.rate-header span
+    font-size: 1rem
+    font-weight: 600
+    padding: 1vh 1vw
+
+.rate-value span
+    font-size: 2rem
+
+.rate-value-left,
+.rate-value-right
+    padding: 0 0.5vw

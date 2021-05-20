@@ -19,7 +19,7 @@ const Graph = (props) => {
                 setData(list);
             });
         return () => props.db.ref(props.type).off("value", listener);
-    }, [data]);
+    }, [data, props.db, props.type]);
 
     return (
         <div className="graph">
@@ -30,9 +30,9 @@ const Graph = (props) => {
                     <XAxis dataKey="timestamp" />
                     <YAxis type="number" domain={[props.lims.min, props.lims.max]} />
                     <Tooltip />
-                    <Legend />
                 </LineChart>
             </ResponsiveContainer>
+            <span style={{ color: props.color }}>Acceleration {props.type.slice(-1).toUpperCase()}</span>
         </div>
     );
 };

@@ -14,12 +14,12 @@ const Dashboard = ({ db }) => {
                 <MultilineGraph db={db} />
             ) : (
                 <div className="multi-graphs">
-                    <Graph db={db} type="accel_x" lims={{min: -12, max: -8}} color="#F00"/>
-                    <Graph db={db} type="accel_y" lims={{min: -4, max: 4}} color="#0F0"/>
-                    <Graph db={db} type="accel_z" lims={{min: -4, max: 4}} color="#00F"/>
+                    <Graph db={db} type="accel_x" lims={{ min: -12, max: -8 }} color="red" />
+                    <Graph db={db} type="accel_y" lims={{ min: -4, max: 4 }} color="orange" />
+                    <Graph db={db} type="accel_z" lims={{ min: -4, max: 4 }} color="#ffe100" />
                 </div>
             )}
-            <Rate db={db}/>
+            <Rate db={db} />
         </div>
     );
 };

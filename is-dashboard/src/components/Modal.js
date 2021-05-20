@@ -2,7 +2,6 @@ import React from "react";
 
 import Profile from "./Profile";
 import Dashboard from "./Dashboard";
-import Rate from "./Rate";
 
 import "../styles/main.css";
 

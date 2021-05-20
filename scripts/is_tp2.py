@@ -60,12 +60,12 @@ def push_data(child, data):
     requests.post('%s%s.json' % (db_ref, child), json=data)
 
 
-def put_config(child, data):
-    requests.put('%s%s.json' % (db_ref, child), json=data)
+def put_config(data):
+    requests.put('%s/config.json' % (db_ref), json=data)
 
 
-def get_config(child):
-    return requests.get('%s%s' % (db_ref, child))
+def get_config():
+    return requests.get('%s/config.json' % (db_ref))
 
 
 # LAB 1 - Implement the data collection loop in a thread
@@ -76,7 +76,7 @@ class DataCollection(threading.Thread):
         # initialize the current_rate value in the cache
         cache.set("current_rate", 1.0)
         # LAB 2 - Put an initial rate in the config stored in the DB
-        put_config('config', {'current_rate': 1.0})
+        put_config({'current_rate': 1.0})
     
     def run(self):
         # LAB 1 - Get acceleration data values (x, y and z) from the simulation and print them to the console
@@ -94,7 +94,10 @@ class DataCollection(threading.Thread):
             push_data('accel_y', {'data': y, 'timestamp': timestamp})
             push_data('accel_z', {'data': z, 'timestamp': timestamp})
             
+            cache.set("current_rate", get_config().json()["current_rate"])
+
             sleep = cache.get("current_rate")
+            print("Current rate: %s" % (sleep))
             time.sleep(sleep if sleep != None else 1.0)
 
 
