@@ -1,0 +1,27 @@
+.signup
+    border: 2px solid orange
+    border-radius: 16px
+    display: flex
+    flex-flow: column nowrap
+    height: 80%
+    padding: 4vh 2vw
+    width: 30%
+
+.text-input
+    font-size: 2vh
+    padding: 1vh 0
+    width: 100%
+
+.floating-label
+    left: 35.5%
+    position: absolute
+    pointer-events: none
+    top: 11%
+    transition: 0.2s ease all
+
+.text-input:focus ~ .floating-label,
+.text-input:not(:focus):valid ~ .floating-label
+    color: orange
+    top: 7%
+    font-size: 1.5vh
+    opacity: 1

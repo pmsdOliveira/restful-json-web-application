@@ -16,15 +16,25 @@ body {
 #l-modal {
   border-radius: 32px;
   box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.75);
-  display: flex;
-  flex-flow: row nowrap;
   height: 90vh;
-  justify-content: space-between;
   left: 5%;
   margin: auto;
   position: absolute;
   top: 5%;
   width: 90vw; }
+
+#l-modal-signup {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%; }
+
+#l-modal-dashboard {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+  justify-content: space-between; }
 
 .dashboard {
   align-items: center;
@@ -40,6 +50,64 @@ body {
   flex-flow: column nowrap;
   width: 100%;
   height: 25%; }
+  .graph span {
+    font-size: 2vh; }
+
+.home {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%; }
+
+.logo-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  height: 15%; }
+  .logo-wrapper img {
+    padding: 2vh 2vw;
+    height: 80%; }
+
+.robot-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 40%;
+  width: 100%; }
+  .robot-wrapper img {
+    height: 100%; }
+
+.title-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 20%; }
+  .title-wrapper span {
+    font-family: "Roboto";
+    font-size: 4vh;
+    font-weight: 600;
+    letter-spacing: 0.5vw; }
+
+.auth-wrapper {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  height: 25%; }
+  .auth-wrapper .login-link {
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    display: flex;
+    font-family: "Roboto";
+    font-size: 2vh;
+    font-weight: 600;
+    height: 40%;
+    justify-content: center;
+    outline: none;
+    text-decoration: none;
+    width: 30%;
+    transition: 0.2s all ease; }
+    .auth-wrapper .login-link:hover {
+      cursor: pointer;
+      font-size: 2.4vh; }
 
 .multi-graphs {
   display: flex;
@@ -51,6 +119,34 @@ body {
 .profile {
   height: 100%;
   width: 20%; }
+
+.signup {
+  border: 2px solid orange;
+  border-radius: 16px;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 80%;
+  padding: 4vh 2vw;
+  width: 30%; }
+
+.text-input {
+  font-size: 2vh;
+  padding: 1vh 0;
+  width: 100%; }
+
+.floating-label {
+  left: 35.5%;
+  position: absolute;
+  pointer-events: none;
+  top: 11%;
+  transition: 0.2s ease all; }
+
+.text-input:focus ~ .floating-label,
+.text-input:not(:focus):valid ~ .floating-label {
+  color: orange;
+  top: 7%;
+  font-size: 1.5vh;
+  opacity: 1; }
 
 .rate {
   align-items: center;
@@ -94,6 +190,12 @@ body {
 .rate-value-right {
   padding: 0 0.5vw; }
 
+@media only screen and (max-width: 768px) {
+  .signup {
+    width: 80%; }
+
+  .floating-label {
+    left: 11%; } }
 body {
   background-image: linear-gradient(315deg, #252a2b 0%, #1c1e1f 74%); }
 
@@ -106,10 +208,18 @@ body {
 .rate-field input {
   color: #ccc; }
 
+.title-wrapper span,
 .rate-value span,
 .rate-header span,
 .rate-value-left,
 .rate-value-right {
   color: orange; }
+
+.auth-wrapper .login-link {
+  background-color: orange;
+  color: #313638; }
+
+.auth-wrapper .login-link:hover {
+  background-color: #c98a00; }
 
 /*# sourceMappingURL=main.css.map */
