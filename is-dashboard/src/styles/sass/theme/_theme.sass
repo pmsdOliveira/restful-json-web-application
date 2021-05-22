@@ -5,7 +5,7 @@ body
     background-color: $modal
 
 .profile
-    border-right: 1px solid orange
+    border-right: 2px solid orange
 
 .rate-field input
     color: #ccc
@@ -14,12 +14,43 @@ body
 .rate-value span,
 .rate-header span,
 .rate-value-left,
-.rate-value-right
+.rate-value-right,
+.signup-login,
+.profile h2,
+.profile p,
+.signup-fail,
+.signup-success,
+.signup-logo-wrapper .signup-exit-link::after,
+.signup-text .signup-label-active,
+.signup-accept-terms > label,
+.signup-tag
     color: orange
 
-.auth-wrapper .login-link
+.auth-wrapper .login-link,
+.profile-logout,
+.signup-fail:hover,
+.signup-success:hover,
+.signup-buttons > input:hover,
+.signup-buttons > input:active,
     background-color: orange
+
+.rate-slider::-webkit-slider-thumb
+    background: orange
+
+.auth-wrapper .login-link,
+.profile-logout,
+.signup-fail::after,
+.signup-fail:hover,
+.signup-success::after,
+.signup-success:hover
     color: $modal
 
-.auth-wrapper .login-link:hover
-    background-color: $button-hover
+.auth-wrapper .login-link:hover,
+.profile-logout:hover
+    background-color: white
+
+@media only screen and (max-width: 768px)
+    .auth-wrapper .login-link
+        background-color: orange
+        &:active
+            background-color: white

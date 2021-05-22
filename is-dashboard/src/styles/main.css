@@ -49,7 +49,7 @@ body {
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
-  height: 25%; }
+  height: 30%; }
   .graph span {
     font-size: 2vh; }
 
@@ -96,8 +96,7 @@ body {
     border: none;
     border-radius: 16px;
     display: flex;
-    font-family: "Roboto";
-    font-size: 2vh;
+    font-size: 3vh;
     font-weight: 600;
     height: 40%;
     justify-content: center;
@@ -106,8 +105,7 @@ body {
     width: 30%;
     transition: 0.2s all ease; }
     .auth-wrapper .login-link:hover {
-      cursor: pointer;
-      font-size: 2.4vh; }
+      cursor: pointer; }
 
 .multi-graphs {
   display: flex;
@@ -117,8 +115,41 @@ body {
   width: 100%; }
 
 .profile {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
   height: 100%;
+  justify-content: center;
   width: 20%; }
+  .profile h2 {
+    align-items: center;
+    display: flex;
+    font-size: 6vh;
+    height: 20%; }
+  .profile p {
+    align-items: center;
+    display: flex;
+    height: 15%; }
+
+.profile-image-wrapper {
+  height: 15%; }
+  .profile-image-wrapper img {
+    height: 100%; }
+
+.profile-logout {
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  font-size: 3vh;
+  font-weight: 600;
+  height: 10%;
+  justify-content: center;
+  text-decoration: none;
+  transition: 0.2s ease all;
+  width: 50%; }
+  .profile-logout:hover {
+    cursor: pointer; }
 
 .signup {
   border: 2px solid orange;
@@ -126,27 +157,164 @@ body {
   display: flex;
   flex-flow: column nowrap;
   height: 80%;
-  padding: 4vh 2vw;
+  padding: 3vh 2vw;
   width: 30%; }
 
-.text-input {
-  font-size: 2vh;
-  padding: 1vh 0;
+.signup-logo-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 15%; }
+  .signup-logo-wrapper .signup-exit-link {
+    display: flex;
+    justify-content: center;
+    padding-left: 2vw;
+    text-decoration: none;
+    width: 20%; }
+    .signup-logo-wrapper .signup-exit-link::after {
+      content: "Exit";
+      opacity: 0;
+      padding-left: 0.5vw;
+      transition: 0.2s ease all; }
+    .signup-logo-wrapper .signup-exit-link:hover::after {
+      opacity: 1; }
+  .signup-logo-wrapper img {
+    padding: 2vh 2vw;
+    height: 80%; }
+
+.signup-arrow {
+  border: solid orange;
+  border-width: 0 0.5vh 0.5vh 0;
+  display: inline-block;
+  padding: 10%;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg); }
+  .signup-arrow:hover {
+    cursor: pointer;
+    transform: scale(100%, 100%); }
+
+.signup-inputs {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin-top: 5vh;
+  height: 50%; }
+
+.signup-text {
+  height: 20%;
+  position: relative;
+  margin-bottom: 4vh;
   width: 100%; }
+  .signup-text > label {
+    font-size: 2.5vh;
+    left: 0.2vw;
+    position: absolute;
+    top: 1.7vh;
+    transition: 0.2s ease all;
+    user-select: none; }
+    .signup-text > label:hover {
+      cursor: text; }
+  .signup-text > input {
+    border: none;
+    border-radius: 8px;
+    font-size: 2.5vh;
+    height: 100%;
+    outline: none;
+    padding-left: 0.3vw;
+    width: 100%; }
+  .signup-text:last-child {
+    margin-bottom: 0; }
+  .signup-text .signup-label-active {
+    font-size: 2vh;
+    top: -2.7vh; }
 
-.floating-label {
-  left: 35.5%;
-  position: absolute;
-  pointer-events: none;
-  top: 11%;
-  transition: 0.2s ease all; }
+.signup-login {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  height: 10%;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none; }
+  .signup-login span:hover {
+    cursor: pointer;
+    text-decoration: underline; }
 
-.text-input:focus ~ .floating-label,
-.text-input:not(:focus):valid ~ .floating-label {
+.signup-accept-terms {
+  display: flex;
+  justify-content: center;
+  text-align: center; }
+  .signup-accept-terms > input {
+    margin-top: 1vh;
+    filter: invert(85%) hue-rotate(0deg) brightness(2); }
+  .signup-accept-terms > label {
+    padding-left: 0.5vw; }
+
+.signup-buttons {
+  align-items: center;
+  display: flex;
+  height: 25%;
+  justify-content: space-around; }
+  .signup-buttons > input {
+    border: none;
+    border-radius: 8px;
+    font-size: 3vh;
+    height: 50%;
+    width: 30%;
+    transition: 0.2s ease all; }
+    .signup-buttons > input:hover, .signup-buttons > input:active {
+      cursor: pointer; }
+
+.signup-tag {
   color: orange;
-  top: 7%;
-  font-size: 1.5vh;
-  opacity: 1; }
+  font-size: 4vh; }
+
+.signup-success {
+  align-items: center;
+  border: 2px solid orange;
+  border-radius: 16px;
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 4vh;
+  justify-content: center;
+  height: 30%;
+  text-decoration: none;
+  transition: 0.2s ease all;
+  width: 30%; }
+  .signup-success::after {
+    content: "Nice job, hacker-man!";
+    display: none;
+    font-size: 2vh;
+    opacity: 0; }
+  .signup-success:hover {
+    cursor: pointer; }
+    .signup-success:hover::after {
+      display: block;
+      opacity: 1; }
+
+.signup-fail {
+  align-items: center;
+  border: 2px solid orange;
+  border-radius: 16px;
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 4vh;
+  justify-content: center;
+  height: 30%;
+  text-decoration: none;
+  transition: 0.2s ease all;
+  width: 30%; }
+  .signup-fail::after {
+    content: "Try again, hacker-boii!";
+    display: none;
+    font-size: 2vh;
+    opacity: 0; }
+  .signup-fail:hover {
+    cursor: pointer; }
+    .signup-fail:hover::after {
+      display: block;
+      opacity: 1; }
 
 .rate {
   align-items: center;
@@ -190,12 +358,54 @@ body {
 .rate-value-right {
   padding: 0 0.5vw; }
 
+.rate-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 3vh;
+  width: 3vh;
+  border-radius: 50%;
+  cursor: pointer; }
+
 @media only screen and (max-width: 768px) {
+  #l-modal-dashboard {
+    flex-flow: column nowrap; }
+
+  .graph-container {
+    margin-right: 10vw; }
+
   .signup {
     width: 80%; }
 
+  .signup-arrow {
+    padding: 15%; }
+
   .floating-label {
-    left: 11%; } }
+    left: 11%; }
+
+  .dashboard {
+    width: 100%; }
+
+  .rate-field {
+    width: 50%; }
+
+  .profile {
+    border-right: 0 !important;
+    height: 20%;
+    width: 100%; }
+    .profile h2 {
+      display: none; }
+    .profile p {
+      padding: 1vh 0; }
+
+  .profile-image-wrapper {
+    height: 40%; }
+
+  .profile-logout {
+    height: 20%;
+    width: 30%; }
+
+  .signup-fail {
+    text-align: center;
+    width: 80%; } }
 body {
   background-image: linear-gradient(315deg, #252a2b 0%, #1c1e1f 74%); }
 
@@ -203,7 +413,7 @@ body {
   background-color: #313638; }
 
 .profile {
-  border-right: 1px solid orange; }
+  border-right: 2px solid orange; }
 
 .rate-field input {
   color: #ccc; }
@@ -212,14 +422,45 @@ body {
 .rate-value span,
 .rate-header span,
 .rate-value-left,
-.rate-value-right {
+.rate-value-right,
+.signup-login,
+.profile h2,
+.profile p,
+.signup-fail,
+.signup-success,
+.signup-logo-wrapper .signup-exit-link::after,
+.signup-text .signup-label-active,
+.signup-accept-terms > label,
+.signup-tag {
   color: orange; }
 
-.auth-wrapper .login-link {
-  background-color: orange;
+.auth-wrapper .login-link,
+.profile-logout,
+.signup-fail:hover,
+.signup-success:hover,
+.signup-buttons > input:hover,
+.signup-buttons > input:active {
+  background-color: orange; }
+
+.rate-slider::-webkit-slider-thumb {
+  background: orange; }
+
+.auth-wrapper .login-link,
+.profile-logout,
+.signup-fail::after,
+.signup-fail:hover,
+.signup-success::after,
+.signup-success:hover {
   color: #313638; }
 
-.auth-wrapper .login-link:hover {
-  background-color: #c98a00; }
+.auth-wrapper .login-link:hover,
+.profile-logout:hover {
+  background-color: white; }
+
+@media only screen and (max-width: 768px) {
+  .auth-wrapper .login-link {
+    background-color: orange; }
+    .auth-wrapper .login-link:active {
+      background-color: white; } }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 import "../styles/main.css";
 
@@ -23,7 +23,7 @@ const Graph = (props) => {
 
     return (
         <div className="graph">
-            <ResponsiveContainer>
+            <ResponsiveContainer className="graph-container">
                 <LineChart data={data} syncId="sync">
                     <Line type="monotone" dataKey="data" stroke={props.color} />
                     <CartesianGrid stroke="#bbb" />

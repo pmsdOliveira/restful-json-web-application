@@ -5,26 +5,22 @@ import { useAuth } from "../contexts/AuthContext";
 
 import logo from "../images/logo.png";
 
-export default function Signup() {
+export default function Login() {
     const [mail, setMail] = useState("");
     const [pass, setPass] = useState("");
-    const [confirmPass, setConfirmPass] = useState("");
 
     const [isMailActive, setMailActive] = useState(false);
     const [isPassActive, setPassActive] = useState(false);
-    const [isConfirmPassActive, setConfirmPassActive] = useState(false);
 
-    const history = useHistory();
-    const { signup } = useAuth();
     const [isLoading, setLoading] = useState(false);
+    const { login } = useAuth();
+    const history = useHistory();
 
-    const clearInputs = () => {
+    const reset = () => {
         setMail("");
         setMailActive(false);
         setPass("");
         setPassActive(false);
-        setConfirmPass("");
-        setConfirmPassActive(false);
     };
 
     const handleSubmit = async (event) => {
@@ -43,21 +39,12 @@ export default function Signup() {
             return;
         }
 
-        if (pass !== confirmPass) {
-            alert("Passwords do not match.");
-            return;
-        }
-
-        setLoading(true);
-
         try {
-            await signup(mail, pass);
-            history.push("/signup-success");
+            await login(mail, pass);
+            history.push("/dashboard");
         } catch {
-            history.push("/signup-failure");
+            history.push("/login-failure");
         }
-
-        setLoading(false);
     };
 
     return (
@@ -66,7 +53,7 @@ export default function Signup() {
                 <Link className="signup-exit-link" to="/">
                     <i className="signup-arrow"></i>
                 </Link>
-                <p className="signup-tag">Sign Up</p>
+                <p className="signup-tag">Login</p>
                 <img src={logo} />
             </div>
             <div className="signup-inputs">
@@ -90,27 +77,18 @@ export default function Signup() {
                     ></input>
                     <label className={isPassActive ? "signup-label-active" : ""}>Password</label>
                 </div>
-                <div className="signup-text" onClick={() => setConfirmPassActive(true)}>
-                    <input
-                        type="password"
-                        name="confirm"
-                        required
-                        value={confirmPass}
-                        onChange={(e) => setConfirmPass(e.target.value)}
-                    ></input>
-                    <label className={isConfirmPassActive ? "signup-label-active" : ""}>Confirm password</label>
-                </div>
             </div>
-            <Link to="/login" className="signup-login">
-                <span>Already have an account? Log in now!</span>
+            <Link to="/signup" className="signup-login">
+                <span>Don't have an account? Sign up now!</span>
             </Link>
             <div className="signup-accept-terms">
                 <input type="checkbox" name="terms" required></input>
                 <label>I agree to share all my personal data with this company</label>
             </div>
+
             <div className="signup-buttons">
-                <input type="reset" value="Clear" onClick={clearInputs} disabled={isLoading}></input>
-                <input type="submit" value="Submit" disabled={isLoading}></input>
+                <input type="reset" value="Clear" onClick={reset}></input>
+                <input type="submit" value="Submit"></input>
             </div>
         </form>
     );

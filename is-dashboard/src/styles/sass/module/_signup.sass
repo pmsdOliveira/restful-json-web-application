@@ -4,24 +4,115 @@
     display: flex
     flex-flow: column nowrap
     height: 80%
-    padding: 4vh 2vw
+    padding: 3vh 2vw
     width: 30%
 
-.text-input
-    font-size: 2vh
-    padding: 1vh 0
+.signup-logo-wrapper
+    align-items: center
+    display: flex
+    justify-content: space-between
+    height: 15%
+    .signup-exit-link
+        display: flex
+        justify-content: center
+        padding-left: 2vw
+        text-decoration: none
+        width: 20%
+        &::after
+            content: "Exit"
+            opacity: 0
+            padding-left: 0.5vw
+            transition: 0.2s ease all
+        &:hover::after
+            opacity: 1
+    img
+        padding: 2vh 2vw
+        height: 80%
+
+.signup-arrow
+    border: solid orange
+    border-width: 0 0.5vh 0.5vh 0
+    display: inline-block
+    padding: 10%
+    transform: rotate(135deg)
+    -webkit-transform: rotate(135deg)
+    &:hover
+        cursor: pointer
+        transform: scale(100%, 100%)
+
+.signup-inputs
+    align-items: center
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    margin-top: 5vh
+    height: 50%
+
+.signup-text
+    height: 20%
+    position: relative
+    margin-bottom: 4vh
     width: 100%
+    > label
+        font-size: 2.5vh
+        left: 0.2vw
+        position: absolute
+        top: 1.7vh
+        transition: 0.2s ease all
+        user-select: none
+        &:hover
+            cursor: text
+    > input
+        border: none
+        border-radius: 8px
+        font-size: 2.5vh
+        height: 100%
+        outline: none
+        padding-left: 0.3vw
+        width: 100%
+    &:last-child
+        margin-bottom: 0
+    .signup-label-active
+        font-size: 2vh
+        top: -2.7vh
 
-.floating-label
-    left: 35.5%
-    position: absolute
-    pointer-events: none
-    top: 11%
-    transition: 0.2s ease all
+.signup-login
+    align-items: center
+    cursor: default
+    display: flex
+    height: 10%
+    justify-content: center
+    text-align: center
+    text-decoration: none
+    span:hover
+        cursor: pointer
+        text-decoration: underline
 
-.text-input:focus ~ .floating-label,
-.text-input:not(:focus):valid ~ .floating-label
+.signup-accept-terms
+    display: flex
+    justify-content: center
+    text-align: center
+    > input
+        margin-top: 1vh
+        filter: invert(85%) hue-rotate(0deg) brightness(2)
+    > label
+        padding-left: 0.5vw
+
+.signup-buttons
+    align-items: center
+    display: flex
+    height: 25%
+    justify-content: space-around
+    > input
+        border: none
+        border-radius: 8px
+        font-size: 3vh
+        height: 50%
+        width: 30%
+        transition: 0.2s ease all
+        &:hover, &:active
+            cursor: pointer
+
+.signup-tag
     color: orange
-    top: 7%
-    font-size: 1.5vh
-    opacity: 1
+    font-size: 4vh

@@ -1,0 +1,22 @@
+.signup-fail
+    align-items: center
+    border: 2px solid orange
+    border-radius: 16px
+    display: flex
+    flex-flow: column nowrap
+    font-size: 4vh
+    justify-content: center
+    height: 30%
+    text-decoration: none
+    transition: 0.2s ease all
+    width: 30%
+    &::after
+        content: "Try again, hacker-boii!"
+        display: none
+        font-size: 2vh
+        opacity: 0
+    &:hover
+        cursor: pointer
+        &::after
+            display: block
+            opacity: 1
