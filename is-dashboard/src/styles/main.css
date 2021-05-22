@@ -125,11 +125,17 @@ body {
     align-items: center;
     display: flex;
     font-size: 6vh;
-    height: 20%; }
+    height: 15%; }
   .profile p {
     align-items: center;
     display: flex;
     height: 15%; }
+
+.profile-logo-wrapper {
+  height: 20%;
+  margin-bottom: 5vh; }
+  .profile-logo-wrapper img {
+    height: 70%; }
 
 .profile-image-wrapper {
   height: 15%; }
@@ -395,6 +401,9 @@ body {
       display: none; }
     .profile p {
       padding: 1vh 0; }
+
+  .profile-logo-wrapper {
+    display: none; }
 
   .profile-image-wrapper {
     height: 40%; }
