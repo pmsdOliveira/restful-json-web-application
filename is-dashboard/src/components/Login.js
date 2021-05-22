@@ -39,12 +39,16 @@ export default function Login() {
             return;
         }
 
+        setLoading(true);
+
         try {
             await login(mail, pass);
             history.push("/dashboard");
         } catch {
             history.push("/login-failure");
         }
+
+        setLoading(false);
     };
 
     return (
@@ -87,8 +91,8 @@ export default function Login() {
             </div>
 
             <div className="signup-buttons">
-                <input type="reset" value="Clear" onClick={reset}></input>
-                <input type="submit" value="Submit"></input>
+                <input type="reset" value="Clear" onClick={reset} disabled={isLoading}></input>
+                <input type="submit" value="Submit" disabled={isLoading}></input>
             </div>
         </form>
     );

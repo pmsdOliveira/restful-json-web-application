@@ -13,7 +13,12 @@ const Graph = (props) => {
             .on("value", (snapshot) => {
                 let list = [];
                 Object.keys(snapshot.val()).forEach((key) => {
-                    list.push(snapshot.val()[key]);
+                    const val = snapshot.val()[key];
+                    if (val > props.lims.max)
+                        alert("Acceleration " + props.type.slice(-1).toUpperCase() + " got an alarmingly high value: " + val.toString());
+                    else if (val < props.lims.min)
+                        alert("Acceleration " + props.type.slice(-1).toUpperCase() + " got an alarmingly low value: " + val.toString());
+                    list.push(val);
                 });
 
                 setData(list);
